@@ -1,0 +1,31 @@
+Patrick Neal
+	Requirements Specifications: Create list of requirements that describe the system's functionality, and get mentor sign-off
+	How to evaluate: Mentor sign-off, requirements will be uploaded to GitHub to read.
+	
+	Risk Analysis: Think of and classify different risks that can come up during the project. Eventually consult with mentor about then
+	How to evaluate: List of risks will be uploaded to GitHub to read.
+	
+Ben Murphy
+	QA Plan: Define the policies and procedures to ensure quality software
+	How to evaluate: Policies and procedures will be outlined and uploaded to GitHub
+	
+	Configuration Management: We are going to use GitHub to organize the project.
+	
+	Feedback Management: Define the policies and procedures to procure and manage feedback
+	How to evaluate: Procedures will be outlined and uploaded to GitHub
+	
+	Collaboration plan: Determine how communication between team members and mentor will happen
+	How to evaluate: Description will be uploaded to GitHub
+	
+	Schedule: List features expected to be deployed with each iteration
+	How to evaluate: Features expected will be uploaded to GitHub
+	
+Jay Murphy
+	Task: Code skeleton
+	Evaluate: Code skeleton will be uploaded to github. Check for the first commit on github as the skeleton.
+	
+	Task: User Interface Design
+	Evaluate: Will sketch out designs and upload to github under the milestones folder sub folder ms0 and in a ID folder.
+
+	Task: Software Design
+	Evaluate: Will upload software design documents to milesetones/ms0/SD
