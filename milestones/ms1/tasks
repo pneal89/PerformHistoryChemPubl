@@ -1,0 +1,20 @@
+Jay Murphy
+
+Task: develop the main layout page for dashboard
+Evaluate: Run the Ruby app and see the code for it in the application view file. 
+
+Task: Authentication
+Evaluate: Have sucessful authentication for an admin user. Will have a user that can be signed in for teseting purposes in the read me file.
+
+Ben Murphy
+
+Task: Add student table with testing
+Evaluate: Have passing tests on the fields in the validations.
+
+Task: FERPA Compliance
+Evaluate: Compare FERPA rules and implementation and have passing tests for various aspects.
+
+Patrick Neal
+
+Task: Add class table with testing
+Evaluate: Have passing tests on the fields in the validation.
