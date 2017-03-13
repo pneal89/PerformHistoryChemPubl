@@ -10,7 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224023220) do
+ActiveRecord::Schema.define(version: 20170313233230) do
+
+  create_table "colleges", force: :cascade do |t|
+    t.string   "city"
+    t.string   "country"
+    t.string   "name"
+    t.string   "school_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "term"
+    t.string   "rubric"
+    t.integer  "course_number"
+    t.string   "section"
+    t.integer  "credit_hours"
+    t.string   "course_type"
+    t.string   "day"
+    t.string   "time"
+    t.string   "instructor"
+    t.string   "instructor_rank"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "hs", force: :cascade do |t|
+    t.string   "city"
+    t.string   "country"
+    t.string   "name"
+    t.string   "school_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.integer  "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,22 +79,6 @@ ActiveRecord::Schema.define(version: 20170224023220) do
     t.boolean  "approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    end
-#ActiveRecord::Schema.define(version: 20170312140820) do
-
-  create_table "courses", force: :cascade do |t|
-    t.integer  "term"
-    t.string   "rubric"
-    t.integer  "course_number"
-    t.string   "section"
-    t.integer  "credit_hours"
-    t.string   "course_type"
-    t.string   "day"
-    t.string   "time"
-    t.string   "instructor"
-    t.string   "instructor_rank"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
 end
