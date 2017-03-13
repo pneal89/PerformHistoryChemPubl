@@ -2764,6 +2764,7 @@ Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (251.2ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (312.4ms)
+<<<<<<< HEAD
 Started GET "/" for 127.0.0.1 at 2017-02-22 00:37:06 -0600
   
 ActiveRecord::PendingMigrationError (
@@ -2786,6 +2787,39 @@ actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  [1m[35m (21.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCourses (20170312140820)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "term" integer, "rubric" varchar, "course_number" integer, "section" varchar, "credit_hours" integer, "course_type" varchar, "day" varchar, "time" varchar, "instructor" varchar, "instructor_rank" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170312140820"]]
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-03-12 14:14:55 UTC], ["updated_at", 2017-03-12 14:14:55 UTC]]
+  [1m[35m (17.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/courses" for 10.0.2.2 at 2017-03-12 14:15:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (4.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 34468ms (Views: 34308.1ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:15:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -2808,6 +2842,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.6ms)
@@ -2881,6 +2916,33 @@ ActionController::RoutingError (No route matches [GET] "/users/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (23.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (92.6ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (197.1ms)
+Started GET "/courses/new" for 10.0.2.2 at 2017-03-12 14:15:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (222.5ms)
+  Rendered courses/new.html.erb within layouts/application (275.7ms)
+Completed 200 OK in 899ms (Views: 826.3ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:15:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -2903,6 +2965,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 127.0.0.1 at 2017-02-22 00:38:34 -0600
 Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 127.0.0.1 at 2017-02-22 00:38:34 -0600
 Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-02-22 00:38:34 -0600
@@ -2942,6 +3005,36 @@ ActionController::RoutingError (No route matches [GET] "/users/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (15.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (77.5ms)
+Started POST "/courses" for 10.0.2.2 at 2017-03-12 14:16:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tfsfvfnduvvk+sptpXHmFqxXdo5KzsbPd4HvQvT5ZllN692ZxskCJPXWiv7AdoEOb/skPuuGPfaZv2xXzUAuBg==", "course"=>{"term"=>"123456", "rubric"=>"CHEM", "course_number"=>"1410", "section"=>"001", "credit_hours"=>"4", "course_type"=>"lecture", "day"=>"MW", "time"=>"6:00 PM", "instructor"=>"Wessel", "instructor_rank"=>"associate"}, "commit"=>"Create Course"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (14.7ms)
+  Rendered courses/new.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 603ms (Views: 575.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:16:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -2964,6 +3057,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
@@ -2993,6 +3087,68 @@ ActionController::RoutingError (No route matches [GET] "/users/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (53.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.7ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (130.3ms)
+Started GET "/courses" for 10.0.2.2 at 2017-03-12 14:18:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/vagrant/Performance-History-Chem/app/models/course.rb:3: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+    message: "only allows numbers" }, length: { is: 6 }
+                                    ^
+/vagrant/Performance-History-Chem/app/models/course.rb:3: syntax error, unexpected tSTRING_DEND, expecting '}'
+/vagrant/Performance-History-Chem/app/models/course.rb:6: syntax error, unexpected tSTRING_DEND, expecting '}'
+/vagrant/Performance-History-Chem/app/models/course.rb:8: syntax error, unexpected tSTRING_DEND, expecting '}'
+...icality: { only_integer: true },
+...                               ^
+/vagrant/Performance-History-Chem/app/models/course.rb:9: syntax error, unexpected '}', expecting keyword_end
+    message: "only allows numbers" }, length: { is: 4 }
+                                    ^):
+  
+app/models/course.rb:3: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+app/models/course.rb:3: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/models/course.rb:6: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/models/course.rb:8: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/models/course.rb:9: syntax error, unexpected '}', expecting keyword_end
+app/controllers/courses_controller.rb:7:in `index'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.9ms)
+Started GET "/courses" for 10.0.2.2 at 2017-03-12 14:21:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 2575ms (Views: 2447.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:21:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3015,6 +3171,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
@@ -3038,6 +3195,33 @@ ActionController::RoutingError (No route matches [GET] "/users/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (26.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (100.9ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (255.2ms)
+Started GET "/courses/new" for 10.0.2.2 at 2017-03-12 14:21:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (46.1ms)
+  Rendered courses/new.html.erb within layouts/application (87.8ms)
+Completed 200 OK in 677ms (Views: 558.2ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:21:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3060,6 +3244,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-02-22 20:28:41 -0600
 Started GET "/assets/bootstrap.self-7bf5980d3755b015e1fae010cd7f1dd2f9f5a57fc68585eff8d301e477689db2.css?body=1" for 127.0.0.1 at 2017-02-22 20:28:41 -0600
 Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-02-22 20:28:41 -0600
@@ -3151,6 +3336,45 @@ ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (16.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.1ms)
+Started POST "/courses" for 10.0.2.2 at 2017-03-12 14:22:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fJInajvPSjM2MCsN74U3gIiPhcgcOf7lj1g0QpFFNbh8guVOBNvy7Ccca56KglCYSyPXeL1xBdxhZrdXqPx95w==", "course"=>{"term"=>"123456", "rubric"=>"CHEM", "course_number"=>"1900", "section"=>"001", "credit_hours"=>"4", "course_type"=>"lecture", "day"=>"MW", "time"=>"6:00 PM", "instructor"=>"Wessel", "instructor_rank"=>"associate"}, "commit"=>"Create Course"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (13.3ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "instructor_rank", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 123456], ["rubric", "CHEM"], ["course_number", 1900], ["section", "001"], ["credit_hours", 4], ["course_type", "lecture"], ["day", "MW"], ["time", "6:00 PM"], ["instructor", "Wessel"], ["instructor_rank", "associate"], ["created_at", 2017-03-12 14:22:16 UTC], ["updated_at", 2017-03-12 14:22:16 UTC]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses/1
+Completed 302 Found in 75ms (ActiveRecord: 31.3ms)
+
+
+Started GET "/courses/1" for 10.0.2.2 at 2017-03-12 14:22:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (10.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 576ms (Views: 502.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:22:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3173,6 +3397,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
 Started GET "/assets/font-awesome/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff?v=4.7.0" for 127.0.0.1 at 2017-02-22 20:31:20 -0600
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
@@ -3189,6 +3414,44 @@ ActionController::RoutingError (No route matches [GET] "/admins"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (10.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (131.3ms)
+Started GET "/courses/index.html" for 10.0.2.2 at 2017-03-12 14:22:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mCourse Load (3.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Course with 'id'=index):
+  
+app/controllers/courses_controller.rb:67:in `set_course'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.4ms)
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:22:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3211,6 +3474,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/admins" for 127.0.0.1 at 2017-02-22 20:32:54 -0600
   
 ActionController::RoutingError (No route matches [GET] "/admins"):
@@ -3218,6 +3482,29 @@ ActionController::RoutingError (No route matches [GET] "/admins"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (7.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (97.8ms)
+Started GET "/courses/1" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mCourse Load (3.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3240,6 +3527,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
@@ -3263,6 +3551,63 @@ ActionController::RoutingError (No route matches [GET] "/admins"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered courses/show.html.erb within layouts/application (2.0ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (6.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (179.5ms)
+Completed 200 OK in 696ms (Views: 613.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Started GET "/assets/scaffolds.self-bf1c4dd6dac823b46b1b4e85aab9d6c99975ae971f9ae51f4a49ad833ea6d4b1.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap.self-e35b4b7f98cfeca7da516459884c383ca565cf4eb1a35f6d6c7c25d7cd91bdac.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-961c1651ff468382265103e71a7017496328bad3eff9bf7690980894404b4430.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/font-awesome/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2?v=4.7.0" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:03 +0000
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3285,6 +3630,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
@@ -3300,6 +3646,44 @@ ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (22.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (114.2ms)
+Started GET "/courses/index.html" for 10.0.2.2 at 2017-03-12 14:23:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mCourse Load (2.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Course with 'id'=index):
+  
+app/controllers/courses_controller.rb:67:in `set_course'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3322,6 +3706,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
@@ -3337,6 +3722,24 @@ ActionController::RoutingError (No route matches [GET] "/users"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (12.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (70.6ms)
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3359,6 +3762,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
@@ -3374,6 +3778,68 @@ ActionController::RoutingError (No route matches [GET] "/users"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (8.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (82.0ms)
+Started GET "/courses/1" for 10.0.2.2 at 2017-03-12 14:23:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (3.7ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 689ms (Views: 567.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:11 +0000
+Started GET "/assets/scaffolds.self-bf1c4dd6dac823b46b1b4e85aab9d6c99975ae971f9ae51f4a49ad833ea6d4b1.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:11 +0000
+Started GET "/assets/bootstrap.self-e35b4b7f98cfeca7da516459884c383ca565cf4eb1a35f6d6c7c25d7cd91bdac.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-961c1651ff468382265103e71a7017496328bad3eff9bf7690980894404b4430.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 10.0.2.2 at 2017-03-12 14:23:13 +0000
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:14 +0000
+Started GET "/assets/font-awesome/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2?v=4.7.0" for 10.0.2.2 at 2017-03-12 14:23:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3396,6 +3862,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
@@ -3414,12 +3881,36 @@ Completed 200 OK in 5153ms (Views: 5018.8ms | ActiveRecord: 19.8ms)
 
 
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-02-23 02:12:00 -0600
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (10.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.9ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 14:23:18 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 598ms (Views: 548.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
   
 ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3442,6 +3933,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
@@ -3451,12 +3943,28 @@ puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (560.1ms)
 Started GET "/index.html" for 127.0.0.1 at 2017-02-23 02:12:14 -0600
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (26.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.2ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (164.1ms)
+Started GET "/index.html" for 10.0.2.2 at 2017-03-12 14:23:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
   
 ActionController::RoutingError (No route matches [GET] "/index.html"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3479,6 +3987,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
@@ -3488,12 +3997,28 @@ puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (101.8ms)
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-02-23 02:12:14 -0600
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (13.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.1ms)
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
   
 ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3516,6 +4041,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
@@ -3587,6 +4113,26 @@ ActionController::RoutingError (No route matches [GET] "/home/img/background.jpg
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (5.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (111.9ms)
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2017-03-12 14:23:29 +0000
+  
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3609,6 +4155,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
@@ -3703,6 +4250,64 @@ ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+Processing by TestController#index as HTML
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.5ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (23.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (288.6ms)
+Completed 200 OK in 704ms (Views: 650.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap.self-e35b4b7f98cfeca7da516459884c383ca565cf4eb1a35f6d6c7c25d7cd91bdac.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/scaffolds.self-bf1c4dd6dac823b46b1b4e85aab9d6c99975ae971f9ae51f4a49ad833ea6d4b1.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/application.self-961c1651ff468382265103e71a7017496328bad3eff9bf7690980894404b4430.css?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/font-awesome/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2?v=4.7.0" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 10.0.2.2 at 2017-03-12 14:23:31 +0000
+Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:32 +0000
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:23:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 10.0.2.2 at 2017-03-12 14:23:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3725,6 +4330,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
@@ -3740,6 +4346,33 @@ ActionController::RoutingError (No route matches [GET] "/users"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (10.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (114.1ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 14:27:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 2666ms (Views: 2586.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:27:40 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3762,6 +4395,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
@@ -3822,11 +4456,32 @@ Started GET "/assets/application.self-d055d01bfd734ddd1108c87f88997786d003078c45
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-12 20:34:11 -0500
   
 Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 127.0.0.1 at 2017-03-12 20:34:11 -0500
-ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (14.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (187.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (603.4ms)
+Started GET "/courses/new" for 10.0.2.2 at 2017-03-12 14:27:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (44.0ms)
+  Rendered courses/new.html.erb within layouts/application (87.6ms)
+Completed 200 OK in 749ms (Views: 615.2ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:27:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3849,6 +4504,50 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (11.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.5ms)
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:27:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+>>>>>>> master
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 127.0.0.1 at 2017-03-12 20:34:11 -0500
 Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-12 20:34:11 -0500
 Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 127.0.0.1 at 2017-03-12 20:34:11 -0500
@@ -3947,6 +4646,23 @@ ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (13.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (91.4ms)
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:33:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -3969,6 +4685,55 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (6.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (71.8ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 14:33:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 635ms (Views: 587.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:33:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.6ms)
@@ -3987,12 +4752,65 @@ Completed 200 OK in 336ms (Views: 331.8ms | ActiveRecord: 0.0ms)
 Started GET "/assets/bootstrap.self-7bf5980d3755b015e1fae010cd7f1dd2f9f5a57fc68585eff8d301e477689db2.css?body=1" for 127.0.0.1 at 2017-03-12 20:37:15 -0500
 Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-12 20:37:16 -0500
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-12 20:37:16 -0500
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.2ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (33.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (163.3ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 14:51:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (65.4ms)
+Completed 500 Internal Server Error in 271ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Test#index</h1>
+    2: <p>Find me in app/views/test/index.html.erb</p>
+    3: 
+    4: <%= form_for @course, url: {action: "index"} do |f| %>
+    5: 	<%= f.text_field :term %>
+    6: 	<%= f.text_field :rubric %>
+    7: 	<%= f.text_field :course_number %>
+  
+app/views/test/index.html.erb:4:in `_app_views_test_index_html_erb___3927263760202508658_44347560'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (14.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.9ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.6ms)
+Started GET "/courses" for 10.0.2.2 at 2017-03-12 14:53:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (60.9ms)
+Completed 200 OK in 4229ms (Views: 4022.5ms | ActiveRecord: 23.4ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 14:53:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
   
 ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4015,6 +4833,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-12 20:37:16 -0500
 Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-12 20:37:16 -0500
 Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 127.0.0.1 at 2017-03-12 20:37:16 -0500
@@ -4045,12 +4864,85 @@ Completed 200 OK in 83ms (Views: 80.8ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-12 20:37:21 -0500
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (31.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (93.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (233.8ms)
+Started GET "/courses/index" for 10.0.2.2 at 2017-03-12 15:00:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mCourse Load (3.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 44ms (ActiveRecord: 3.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Course with 'id'=index):
+  
+app/controllers/courses_controller.rb:67:in `set_course'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (11.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.8ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 15:01:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (65.1ms)
+Completed 500 Internal Server Error in 271ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Test#index</h1>
+    2: <p>Find me in app/views/test/index.html.erb</p>
+    3: 
+    4: <%= form_for @course, url: {action: "course"} do |f| %>
+    5: 	<%= f.text_field :term %>
+    6: 	<%= f.text_field :rubric %>
+    7: 	<%= f.text_field :course_number %>
+  
+app/views/test/index.html.erb:4:in `_app_views_test_index_html_erb___4091520701303345126_32829800'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.5ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 15:02:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (5.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 3088ms (Views: 3015.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:03:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
   
 ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4073,6 +4965,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
@@ -4095,6 +4988,32 @@ ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (21.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (91.2ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (17.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (227.1ms)
+Started GET "/courses/new" for 10.0.2.2 at 2017-03-12 15:03:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (56.3ms)
+  Rendered courses/new.html.erb within layouts/application (112.1ms)
+Completed 200 OK in 817ms (Views: 693.3ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:03:06 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4117,6 +5036,199 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (12.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (101.5ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:03:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 582ms (Views: 531.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:03:11 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (10.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (87.0ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:04:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (72.8ms)
+Completed 200 OK in 2408ms (Views: 2266.2ms | ActiveRecord: 19.1ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:04:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.2ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (31.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (163.6ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (424.1ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:06:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (63.4ms)
+Completed 200 OK in 2432ms (Views: 2299.7ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:06:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (18.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (121.1ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (294.9ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:07:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 2506ms (Views: 2352.4ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:07:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
@@ -4183,6 +5295,34 @@ ActionController::RoutingError (No route matches [GET] "/users"):
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.6ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (29.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (108.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (316.3ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:08:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (3.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (62.8ms)
+Completed 200 OK in 2411ms (Views: 2267.3ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:08:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4205,6 +5345,7 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
@@ -4249,6 +5390,33 @@ actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (39.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (105.4ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (328.6ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:09:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 2500ms (Views: 2345.3ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:10:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4271,6 +5439,56 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (18.8ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (35.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (133.3ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (287.6ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:24:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (72.0ms)
+Completed 200 OK in 2504ms (Views: 2364.7ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:24:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
@@ -4288,12 +5506,33 @@ Completed 200 OK in 567ms (Views: 503.0ms | ActiveRecord: 13.4ms)
 
 
 Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-12 20:38:38 -0500
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (125.3ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (92.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (354.8ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:28:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (71.6ms)
+Completed 200 OK in 2552ms (Views: 2411.4ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:28:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
   
-ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
   
 actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
 web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
 web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
 actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -4316,6 +5555,221 @@ puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
 puma (3.7.0) lib/puma/server.rb:415:in `process_client'
 puma (3.7.0) lib/puma/server.rb:275:in `block in run'
 puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (51.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (82.6ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (261.7ms)
+Started GET "/courses/" for 10.0.2.2 at 2017-03-12 15:29:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (2.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (68.1ms)
+Completed 200 OK in 2446ms (Views: 2304.0ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:29:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.1ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (63.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (158.2ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (513.0ms)
+Started GET "/courses/1" for 10.0.2.2 at 2017-03-12 15:29:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (2.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 685ms (Views: 567.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:29:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (5.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (46.6ms)
+Started GET "/courses/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:30:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (9.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.5ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 15:31:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (64.7ms)
+Completed 500 Internal Server Error in 284ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Test#index</h1>
+    2: <p>Find me in app/views/test/index.html.erb</p>
+    3: 
+    4: <%= form_for @course, url: {action: "show"} do |f| %>
+    5: 	<%= f.text_field :term %>
+    6: 	<%= f.text_field :rubric %>
+    7: 	<%= f.text_field :course_number %>
+  
+app/views/test/index.html.erb:4:in `_app_views_test_index_html_erb___3749668885603055008_38252460'
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.8ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.3ms)
+Started GET "/" for 10.0.2.2 at 2017-03-12 15:32:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 3807ms (Views: 3736.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/img.jpg" for 10.0.2.2 at 2017-03-12 15:33:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+>>>>>>> master
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+<<<<<<< HEAD
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+=======
+web-console (3.4.0) lib/web_console/middleware.rb:20:in `block in call'
+>>>>>>> master
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+<<<<<<< HEAD
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
@@ -4324,3 +5778,13 @@ puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (125.4ms)
+=======
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (28.0ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (71.5ms)
+  Rendering /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.3.0@comp4081/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (208.2ms)
+>>>>>>> master

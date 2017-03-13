@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 20170224023220) do
     t.boolean  "approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    end
+#ActiveRecord::Schema.define(version: 20170312140820) do
+
+  create_table "courses", force: :cascade do |t|
+    t.integer  "term"
+    t.string   "rubric"
+    t.integer  "course_number"
+    t.string   "section"
+    t.integer  "credit_hours"
+    t.string   "course_type"
+    t.string   "day"
+    t.string   "time"
+    t.string   "instructor"
+    t.string   "instructor_rank"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
