@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'test#index'
 
-  authenticate :user do
     devise_for :users
-    get 'test/index'
-  end
+
+    get 'user', to: 'users#index', as: 'admin_users'
+    #get 'test/index'
 end
