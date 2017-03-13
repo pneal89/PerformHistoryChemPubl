@@ -1,0 +1,2 @@
+class H < ApplicationRecord
+end

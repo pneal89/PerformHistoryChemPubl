@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :states
+  resources :colleges
+  resources :hs
   resources :courses
   get 'test/index'
 
