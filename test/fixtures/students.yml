@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  act_math: 1
+  degree: MyString
+  email: MyString
+  ethnicity: MyString
+  fname: MyString
+  gender: MyString
+  graduation: 2017-03-13
+  high_school: 1
+  lname: MyString
+  prior_college: 1
+  transfer_hours: 1
+
+two:
+  uid: MyString
+  act_math: 1
+  degree: MyString
+  email: MyString
+  ethnicity: MyString
+  fname: MyString
+  gender: MyString
+  graduation: 2017-03-13
+  high_school: 1
+  lname: MyString
+  prior_college: 1
+  transfer_hours: 1
