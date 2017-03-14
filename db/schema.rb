@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170314025526) do
 
+  create_table "colleges", force: :cascade do |t|
+    t.string   "city"
+    t.string   "state"
+    t.string   "name"
+    t.string   "uid"
+    t.string   "county"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "course_students", force: :cascade do |t|
     t.string   "grade"
     t.integer  "attempt"
@@ -21,16 +31,6 @@ ActiveRecord::Schema.define(version: 20170314025526) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_students_on_course_id"
     t.index ["student_id"], name: "index_course_students_on_student_id"
-end
-
-  create_table "colleges", force: :cascade do |t|
-    t.string   "city"
-    t.string   "state"
-    t.string   "name"
-    t.string   "uid"
-    t.string   "county"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "courses", force: :cascade do |t|
