@@ -20,4 +20,7 @@ class Course < ApplicationRecord
     validates :time, presence: true
 
     validates :instructor, presence: true
+
+    has_many :course_students
+    has_many :students, through: :course_students
 end

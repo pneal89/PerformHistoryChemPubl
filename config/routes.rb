@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :course_students
   resources :statistics
   resources :students
   resources :courses
