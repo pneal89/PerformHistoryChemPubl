@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   resources :course_students
+=======
+  resources :colleges
+  resources :high_schools
+  resources :instructors
+  resources :states
+>>>>>>> development
   resources :statistics
   resources :students
   resources :courses

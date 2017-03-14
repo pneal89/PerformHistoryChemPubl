@@ -1,4 +1,4 @@
-class Course < ApplicationRecord
+ class Course < ApplicationRecord
 	validates :term, presence: true, numericality: { only_integer: true ,
     message: "only allows numbers" }, length: { is: 6 }
 
