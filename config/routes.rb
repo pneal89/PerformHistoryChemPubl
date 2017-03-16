@@ -15,8 +15,7 @@ Rails.application.routes.draw do
 
   root to: 'test#index'
 
-    devise_for :users
+  devise_for :users
 
-    get 'user', to: 'users#index', as: 'admin_users'
-    #get 'test/index'
+  get 'users', to: 'users#index', as: 'admin_users'
 end
