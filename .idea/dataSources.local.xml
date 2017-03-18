@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Sqlite (Xerial) - development.sqlite3 [2]" uuid="2981aac2-6d0b-489c-9b05-eaf50ae92aec" />
-    <data-source name="Sqlite (Xerial) - development.sqlite3" uuid="5c16a6bf-b799-4a3f-a408-b4b167ffd06f" />
+    <data-source name="Sqlite (Xerial) - development.sqlite3" uuid="ba423c7e-a8bf-4bc9-bddc-1b65f0eb333c">
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>
