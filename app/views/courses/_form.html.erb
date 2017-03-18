@@ -11,57 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :term %>
-    <%= f.number_field :term %>
+    <%= f.number_field :term, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :rubric %>
-    <%= f.text_field :rubric %>
+    <%= f.text_field :rubric, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :course_number %>
-    <%= f.number_field :course_number %>
+    <%= f.number_field :course_number, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :section %>
-    <%= f.text_field :section %>
+    <%= f.text_field :section, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :credit_hours %>
-    <%= f.number_field :credit_hours %>
+    <%= f.number_field :credit_hours, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :course_type %>
-    <%= f.text_field :course_type %>
+    <%= f.text_field :course_type, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :day %>
-    <%= f.text_field :day %>
+    <%= f.text_field :day, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :time %>
-    <%= f.text_field :time %>
+    <%= f.text_field :time, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :instructor %>
-    <%= f.text_field :instructor %>
+    <%= f.text_field :instructor, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :instructor_rank %>
-    <%= f.text_field :instructor_rank %>
+    <%= f.text_field :instructor_rank, class: 'form-control' %>
   </div>
 
-  <div class="actions">
+  <div class="actions form-group">
     <%= f.submit %>
   </div>
 <% end %>

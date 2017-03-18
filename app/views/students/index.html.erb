@@ -1,21 +1,44 @@
-<p id="notice"><%= notice %></p>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    text-align: left;    
-}
-</style>
-</head>
+<div class="col-md-12">
+  <p id="notice"><%= notice %></p>
+  <div class="row top_tiles">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+        <div class="count">179</div>
+        <h3>Lorem ipsum </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-comments-o"></i></div>
+        <div class="count">179</div>
+        <h3>Lorem ipsum </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+        <div class="count">179</div>
+        <h3>Lorem ipsum </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-check-square-o"></i></div>
+        <div class="count">179</div>
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+  </div>
 
-<h1>Students</h1>
+  <h1>Students</h1>
 
-<table style="width:100%">
-  <thead>
+  <table class="table-bordered table-responsive">
+    <thead>
     <tr>
       <th>Uid</th>
       <th>Act math</th>
@@ -29,33 +52,35 @@ th, td {
       <th>Lname</th>
       <th>Prior college</th>
       <th>Transfer hours</th>
-      <th colspan="3"></th>
+      <th colspan="3">options</th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @students.each do |student| %>
-      <tr>
-        <td><%= student.uid %></td>
-        <td><%= student.act_math %></td>
-        <td><%= student.degree %></td>
-        <td><%= student.email %></td>
-        <td><%= student.ethnicity %></td>
-        <td><%= student.fname %></td>
-        <td><%= student.gender %></td>
-        <td><%= student.graduation %></td>
-        <td><%= student.high_school %></td>
-        <td><%= student.lname %></td>
-        <td><%= student.prior_college %></td>
-        <td><%= student.transfer_hours %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= student.uid %></td>
+          <td><%= student.act_math %></td>
+          <td><%= student.degree %></td>
+          <td><%= student.email %></td>
+          <td><%= student.ethnicity %></td>
+          <td><%= student.fname %></td>
+          <td><%= student.gender %></td>
+          <td><%= student.graduation %></td>
+          <td><%= student.high_school %></td>
+          <td><%= student.lname %></td>
+          <td><%= student.prior_college %></td>
+          <td><%= student.transfer_hours %></td>
+          <td><%= link_to 'Show', student %></td>
+          <td><%= link_to 'Edit', edit_student_path(student) %></td>
+          <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Student', new_student_path %>
+  <%= link_to 'New Student', new_student_path %>
+
+</div>
