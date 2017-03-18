@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
   #     "application"
   #   end
   # end
+
+  def checkifapproved
+    if !current_user?
+      redirect_to root_path
+    elsif current_user? && current_user.approved != true
+      redirect_to root_path
+    end
+  end
 end
