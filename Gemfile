@@ -55,3 +55,5 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'devise'
 
 gem 'seed_dump'
+
+gem 'will_paginate', '~> 3.1.0'
