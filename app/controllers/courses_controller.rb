@@ -72,9 +72,9 @@ class CoursesController < ApplicationController
     rows=0
     CSV.foreach(params[:file].path, :headers => true) do |row|
       data = row.to_hash
-      instr = Instructor.find_by(fname: data['Instructor'])
+      instr = Instructor.find_by(name: data['Instructor'])
       if instr.blank?
-        instr_id = (Instructor.create(:fname => data['Instructor'])).id
+        instr_id = (Instructor.create(:name => data['Instructor'])).id
       else
         instr_id = instr.id
       end
