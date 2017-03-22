@@ -1,10 +1,37 @@
 class StudentsController < ApplicationController
+  require 'csv'
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.paginate(:page => params[:page])
+  end
+
+  def import
+
+  end
+
+  def to_db
+    student = Student.new();
+    added_rows = 0
+    rows = 0
+    CSV.foreach(params[:file].path, :headers => true) do |row|
+      data = row.to_hash
+      student = Student.new(
+                            :lname => (data['Last Name']),
+                            :fname => (data['First Name']),
+                            :uid => (data['UID']),
+                            :transfer_hours => (data['TREH']).to_i,
+      )
+      if student.save
+        added_rows = added_rows + 1
+      end
+      rows = rows + 1
+    end
+    if added_rows == rows
+      redirect_to students_path
+    end
   end
 
   # GET /students/1
