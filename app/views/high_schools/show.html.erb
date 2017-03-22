@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @high_school.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @high_school.state %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @high_school.name %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @high_school.uid %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @high_school.county %>
+</p>
+
+<%= link_to 'Edit', edit_high_school_path(@high_school) %> |
+<%= link_to 'Back', high_schools_path %>
