@@ -72,6 +72,13 @@ class CoursesController < ApplicationController
     rows=0
     CSV.foreach(params[:file].path, :headers => true) do |row|
       data = row.to_hash
+      instr = Instructor.find_by(fname: data['Instructor'])
+      if instr.blank?
+        instr_id = (Instructor.create(:fname => data['Instructor'])).id
+      else
+        instr_id = instr.id
+      end
+      #byebug
       course = Course.new(
                          :term => (data['Term']).to_i,
                          :rubric => data['Prefix'],
@@ -81,10 +88,11 @@ class CoursesController < ApplicationController
                          :day => data['Days'],
                          :time => data['Start'],
                          :instructor => data['Instructor'],
-                         :course_type => data['Type']
+                         :course_type => data['Type'],
+                         :instructor_id => instr_id.to_i
       )
 
-      if course.save
+      if course.save!
         added_rows = added_rows + 1
       end
       rows = rows + 1

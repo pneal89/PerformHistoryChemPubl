@@ -9359,3 +9359,2047 @@ Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8
   Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
   Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (226.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddInstructorToCourses (20170321041321)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (21.2ms)[0m  [1m[35mALTER TABLE "courses" ADD "instructor_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_courses_on_instructor_id" ON "courses" ("instructor_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170321041321"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:23:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (20.7ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (185.2ms)
+Completed 500 Internal Server Error in 609ms (ActiveRecord: 22.0ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__1477824052666187159_70124724324840'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__1477824052666187159_70124724324840'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (197.5ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:25:09 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.8ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.3ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (42.7ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__1477824052666187159_70124727623600'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__1477824052666187159_70124727623600'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (82.4ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:28:12 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.6ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__1477824052666187159_70124727801860'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__1477824052666187159_70124727801860'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.1ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:31:06 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  [1m[36mInstructor Load (0.6ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (38.9ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__1477824052666187159_70124745065120'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__1477824052666187159_70124745065120'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.1ms)
+Started GET "/" for 127.0.0.1 at 2017-03-20 23:36:32 -0500
+Started GET "/" for 127.0.0.1 at 2017-03-20 23:36:32 -0500
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3655ms (Views: 3501.8ms | ActiveRecord: 1.6ms)
+
+
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 114ms (Views: 80.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:36:36 -0500
+  
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:36:36 -0500
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (379.9ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (319.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (471.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (28.1ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1148.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1229.3ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:36:42 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 72ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:36:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (36.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (163.3ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:36:55 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CrtiSwGkXOo1FnHT8/0pu3+i+4LB8iLVFmM0+2HRjQNnkL5iKF7WaidtpCc3OcEgIkmOjX+QAK/fvMPwaToAiQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e612f91c0 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-1ql1jz2.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 2.1ms)
+
+
+  
+NameError (undefined local variable or method `data' for #<CoursesController:0x007f8e612f9bc0>):
+  
+app/controllers/courses_controller.rb:74:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (132.2ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:37:34 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 309ms (Views: 291.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:37:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (26.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (186.7ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:37:40 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fZaKSalt1IE5rOJp6GtTbX/z7/aCkLeWU/Ly//lZVUUQvVZggJdeASvXN50sr7v2Ihia+TzyleyaLQX08bLYzw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e5d347860 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-1d60gui.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.3ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("fname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fname", "Kirksey, H"], ["created_at", 2017-03-21 04:37:40 UTC], ["updated_at", 2017-03-21 04:37:40 UTC]]
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 16.1ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70124769013640) expected, got String(#70124703178860)):
+  
+app/controllers/courses_controller.rb:79:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.8ms)
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:38:14 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (22.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (137.9ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:38:35 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CrtiSwGkXOo1FnHT8/0pu3+i+4LB8iLVFmM0+2HRjQNnkL5iKF7WaidtpCc3OcEgIkmOjX+QAK/fvMPwaToAiQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e653e0148 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-d4kssj.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:89:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (83.6ms)
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:39:34 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (28.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.5ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:39:40 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fZaKSalt1IE5rOJp6GtTbX/z7/aCkLeWU/Ly//lZVUUQvVZggJdeASvXN50sr7v2Ihia+TzyleyaLQX08bLYzw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e604d3140 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-agm4wn.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 263ms (ActiveRecord: 1.9ms)
+
+
+  
+NoMethodError (undefined method `id' for 0:Fixnum
+Did you mean?  i):
+  
+app/controllers/courses_controller.rb:91:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.6ms)
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:39:50 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (24.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (122.2ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:39:55 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CrtiSwGkXOo1FnHT8/0pu3+i+4LB8iLVFmM0+2HRjQNnkL5iKF7WaidtpCc3OcEgIkmOjX+QAK/fvMPwaToAiQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e648dc0a8 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-1fa29bq.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70124775256320) expected, got String(#70124703178860)):
+  
+app/controllers/courses_controller.rb:81:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (87.0ms)
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:40:19 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (22.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (127.9ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:40:25 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fZaKSalt1IE5rOJp6GtTbX/z7/aCkLeWU/Ly//lZVUUQvVZggJdeASvXN50sr7v2Ihia+TzyleyaLQX08bLYzw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f8e64976b08 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4790-mh33rk.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.4ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:44:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 2394ms (Views: 2348.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:44:14 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (84.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (330.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1433.3ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:44:21 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZrieLDaUGzVKCR1vDZ890fv+TjVa8r52Le0zXDVQ8LILk0IFH26RtVhyyJvJW9VKphU7OuSQnAzkMsRXPbt9OA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007feacc934310 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4922-1xwt2vy.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 46731ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70323216411320) expected, got String(#70323211247700)):
+  
+app/controllers/courses_controller.rb:80:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (233.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (58.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (24.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (407.7ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:46:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.5ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (106.3ms)
+Completed 500 Internal Server Error in 277ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__2796889384804458385_70354693311920'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__2796889384804458385_70354693311920'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (96.5ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:46:56 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.8ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__2796889384804458385_70354670619440'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__2796889384804458385_70354670619440'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (120.6ms)
+Started GET "/" for 127.0.0.1 at 2017-03-20 23:46:57 -0500
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.4ms)
+Started GET "/" for 127.0.0.1 at 2017-03-20 23:46:57 -0500
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1553ms (Views: 1550.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 1823ms (Views: 1777.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:46:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:46:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (143.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (41.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (94.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (129.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (348.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (645.0ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:47:04 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:47:04 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (24.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.0ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:47:06 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1/dAab/xvkqGr5Q1MfeNqazGERYqopNcClnv9B1l7T+dAEojwVMeThha6QQAzat+1htS+bIqDe59pC02J4aPg==", "commit"=>"Import"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `path' for nil:NilClass):
+  
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.9ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:47:08 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 56ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:47:08 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (28.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (159.5ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:47:16 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AvGENEqs8AHUuF2zblUrnmfC7J2WbjSF5zjH1REs0wpv2lgdY1Z6gcbDiEeqkcMFOimZkigMFv8u5zDeGcdegA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007ff978180668 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-4970-1jwwhff.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Started GET "/courses" for 127.0.0.1 at 2017-03-20 23:48:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (0.7ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (105.3ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb__1035741825906400168_70315720772220'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb__1035741825906400168_70315720772220'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (98.2ms)
+Started GET "/" for 127.0.0.1 at 2017-03-20 23:48:44 -0500
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2511ms (Views: 2430.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:48:46 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (48.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (85.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (290.0ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:48:56 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 70ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:48:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (18.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (122.8ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:49:09 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zmH3SaIkj2CEQ9hHeNlWwj5FW2iRac/YKt9aB+4KWX6jSitgi94F4JY4DbO8Hb5ZY64uZy8L7aLjAK0M5uHU9A==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fe75278bc20 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-5043-wtn2d5.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.3ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70315698347220) expected, got String(#70315695054960)):
+  
+app/controllers/courses_controller.rb:82:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.6ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:49:36 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 264ms (Views: 247.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:49:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (51.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (242.6ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:49:41 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cgzzPETuYC+Zm+igyVvM/+b3wHF3uLckFuNMMsPhe5sfJy8VbRTqr4vgPVQNnyRkuxy1fsnalV7fPLs5ywr2EQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fe74f6489b0 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-5043-1iqd3l.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.3ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70315707452260) expected, got String(#70315695054960)):
+  
+app/controllers/courses_controller.rb:82:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (73.6ms)
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:51:27 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (27.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (123.4ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:51:32 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zmH3SaIkj2CEQ9hHeNlWwj5FW2iRac/YKt9aB+4KWX6jSitgi94F4JY4DbO8Hb5ZY64uZy8L7aLjAK0M5uHU9A==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fe754223330 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-5043-1urfkzq.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-20 23:53:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 1710ms (Views: 1670.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-20 23:53:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (38.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (65.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (364.0ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-20 23:53:17 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vrnwSQXxNmS1SWcrUkNL4XbBRIQtQZI6tjl1/8TcxJzTkixgLAu85Kcyst+Wh6N6Kyoxi5MjsEB/5oL0zDdJFg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fee9650fd48 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170320-5149-s47x0x.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("fname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fname", "Kirksey, H"], ["created_at", 2017-03-21 04:53:17 UTC], ["updated_at", 2017-03-21 04:53:17 UTC]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 72916ms (ActiveRecord: 3.7ms)
+
+
+  
+ActiveRecord::AssociationTypeMismatch (Instructor(#70331361381560) expected, got String(#70331306254420)):
+  
+app/controllers/courses_controller.rb:82:in `block in to_db'
+app/controllers/courses_controller.rb:73:in `to_db'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (172.3ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (46.4ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (15.3ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (318.7ms)
+Started GET "/" for 127.0.0.1 at 2017-03-21 19:51:48 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestController#index as HTML
+  Rendering test/index.html.erb within layouts/application
+  Rendered test/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1840ms (Views: 1635.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+  
+Started GET "/assets/course_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/assets/application.self-d055d01bfd734ddd1108c87f88997786d003078c4530a5c938bc4e6d53fb6f34.css?body=1" for 127.0.0.1 at 2017-03-21 19:51:51 -0500
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.4ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (293.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (254.9ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (752.8ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-21 19:52:44 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 369ms (Views: 339.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-21 19:52:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (26.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (212.3ms)
+Started POST "/courses" for 127.0.0.1 at 2017-03-21 19:53:34 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dBKqEKRWJSoGvKRKLgn/Hp/vIy1W4RJps//C9yPz3qAZOXY5jayvqhTHcb7qzReFwgRWIuiDMBN6IDX8KxhTKg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fbbe2ed5e90 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170321-6177-gutmbj.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (19.8ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+Started GET "/courses" for 127.0.0.1 at 2017-03-21 19:57:10 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (18.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mInstructor Load (20.4ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?[0m  [["course_id", 1], ["LIMIT", 1]]
+  Rendered courses/index.html.erb within layouts/application (194.7ms)
+Completed 500 Internal Server Error in 394ms (ActiveRecord: 40.3ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: instructors.course_id: SELECT  "instructors".* FROM "instructors" WHERE "instructors"."course_id" = ? LIMIT ?):
+    31:           <td><%= course.course_type %></td>
+    32:           <td><%= course.day %></td>
+    33:           <td><%= course.time %></td>
+    34:           <td><%= course.instructor %></td>
+    35:           <td><%= course.instructor_rank %></td>
+    36:           <td><b><u><%= link_to 'Show', course %></u></b></td>
+    37:           <td><b><u><%= link_to 'Edit', edit_course_path(course) %></u></b></td>
+  
+app/views/courses/index.html.erb:34:in `block in _app_views_courses_index_html_erb___2527418541543580119_70233880281240'
+app/views/courses/index.html.erb:24:in `_app_views_courses_index_html_erb___2527418541543580119_70233880281240'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (122.3ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-21 19:58:16 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 2574ms (Views: 2562.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-21 19:58:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (172.3ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (538.2ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (907.7ms)
+Started GET "/courses/import" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Processing by CoursesController#import as HTML
+  Rendering courses/import.html.erb within layouts/application
+  Rendered courses/import.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 115ms (Views: 113.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.self-7bf5980d3755b015e1fae010cd7f1dd2f9f5a57fc68585eff8d301e477689db2.css?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/courses/images/img.jpg" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/courses/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/application.self-d055d01bfd734ddd1108c87f88997786d003078c4530a5c938bc4e6d53fb6f34.css?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/course_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/colleges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+Started GET "/assets/instructors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+Started GET "/assets/high_schools.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/statistics.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/states.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (26.1ms)
+Started GET "/assets/font-awesome/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff?v=4.7.0" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (203.2ms)
+Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 127.0.0.1 at 2017-03-21 19:58:27 -0500
+Started POST "/courses" for 127.0.0.1 at 2017-03-21 19:58:38 -0500
+Processing by CoursesController#to_db as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OMLgj3sl1chIM/KsW6mcrlFTLlQaOwycU4xhdtd/wsdV6TymUt9fSFpIJ1ifbXQ1DLhbW6RZLuaaU5Z935RPTQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fc136cf0838 @tempfile=#<Tempfile:/var/folders/6_/zxkrb3r16z11twvzs7yvx8n00000gn/T/RackMultipart20170321-6253-17jig6b.csv>, @original_filename="courses.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"courses.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import"}
+  [1m[36mInstructor Load (0.5ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201580], ["rubric", "CHEM"], ["course_number", 1110], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "9:10"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 2]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201580], ["rubric", "CHEM"], ["course_number", 1111], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201580], ["rubric", "CHEM"], ["course_number", 1111], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("fname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fname", "Houk, L"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1110], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "TR"], ["time", "9:40"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 3]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1111], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "W"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 3]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1111], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "R"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:38 UTC], ["updated_at", 2017-03-22 00:58:38 UTC], ["instructor_id", 3]]
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1120], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "9:10"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1121], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201610], ["rubric", "CHEM"], ["course_number", 1121], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1110], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "9:10"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1111], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1111], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1120], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "TR"], ["time", "9:40"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1121], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "W"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 1121], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "R"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("fname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fname", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC]]
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 3301], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (18.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 3301], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (52.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201680], ["rubric", "CHEM"], ["course_number", 3310], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "10:20"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1110], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "TR"], ["time", "9:40"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1111], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "W"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Houk, L"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1111], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "R"], ["time", "13:00"], ["instructor", "Houk, L"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 3]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1120], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "9:10"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1121], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Kirksey, H"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 1121], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Kirksey, H"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 2]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3301], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "W"], ["time", "13:00"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.3ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3301], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "R"], ["time", "19:10"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.1ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Robinson, C"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3310], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "TR"], ["time", "17:30"], ["instructor", "Robinson, C"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 4]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Larrabee, A"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("fname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["fname", "Larrabee, A"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3501], ["section", "101"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "M"], ["time", "13:00"], ["instructor", "Larrabee, A"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 5]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Larrabee, A"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3501], ["section", "102"], ["credit_hours", 1], ["course_type", "Lab"], ["day", "T"], ["time", "13:00"], ["instructor", "Larrabee, A"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 5]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mInstructor Load (0.2ms)[0m  [1m[34mSELECT  "instructors".* FROM "instructors" WHERE "instructors"."fname" = ? LIMIT ?[0m  [["fname", "Larrabee, A"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "courses" ("term", "rubric", "course_number", "section", "credit_hours", "course_type", "day", "time", "instructor", "created_at", "updated_at", "instructor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["term", 201710], ["rubric", "CHEM"], ["course_number", 3511], ["section", "001"], ["credit_hours", 3], ["course_type", "Lect"], ["day", "MWF"], ["time", "10:20"], ["instructor", "Larrabee, A"], ["created_at", 2017-03-22 00:58:39 UTC], ["updated_at", 2017-03-22 00:58:39 UTC], ["instructor_id", 5]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 585ms (ActiveRecord: 205.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-03-21 19:58:39 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (129.5ms)
+Completed 200 OK in 198ms (Views: 177.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 19:58:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (22.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (170.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteNameFromCourse (20170322010417)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ainstructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "lname" varchar, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "ainstructors" ("id","fname","lname","rank","created_at","updated_at")
+                     SELECT "id","fname","lname","rank","created_at","updated_at" FROM "instructors"[0m
+  [1m[35m (45.2ms)[0m  [1m[35mDROP TABLE "instructors"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lname" varchar, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "instructors" ("id","lname","rank","created_at","updated_at")
+                     SELECT "id","lname","rank","created_at","updated_at" FROM "ainstructors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ainstructors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ainstructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lname" varchar, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ainstructors" ("id","lname","rank","created_at","updated_at")
+                     SELECT "id","lname","rank","created_at","updated_at" FROM "instructors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "instructors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "instructors" ("id","rank","created_at","updated_at")
+                     SELECT "id","rank","created_at","updated_at" FROM "ainstructors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ainstructors"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "instructors" ADD "DeleteNameFromCourse" varchar[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170322010417"]]
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNameToInstructors (20170322010813)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "instructors" ADD "name" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170322010813"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (15.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteFromInstructors (20170322011153)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ainstructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "DeleteNameFromCourse" varchar, "name" varchar)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "ainstructors" ("id","rank","created_at","updated_at","DeleteNameFromCourse","name")
+                     SELECT "id","rank","created_at","updated_at","DeleteNameFromCourse","name" FROM "instructors"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "instructors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rank" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "instructors" ("id","rank","created_at","updated_at","name")
+                     SELECT "id","rank","created_at","updated_at","name" FROM "ainstructors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ainstructors"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170322011153"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_course_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_course_students_on_student_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_courses_on_instructor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/courses" for 127.0.0.1 at 2017-03-21 20:15:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (145.3ms)
+Completed 200 OK in 11119ms (Views: 11023.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 20:16:05 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (894.6ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (109.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1487.7ms)
+Started GET "/courses?page=2" for 127.0.0.1 at 2017-03-21 20:18:51 -0500
+Processing by CoursesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (8.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 30]]
+  Rendered courses/index.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 583ms (Views: 546.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 20:18:52 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (43.8ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (193.5ms)
+Started DELETE "/courses/153" for 127.0.0.1 at 2017-03-21 20:19:01 -0500
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"F4RuAvPRKpnHrNaX74kZMpgMSRvlEgpmy47kqR0BAsl6r7Ir2iugGdXXA2MrTfGpxec8FFtwKBwCUROiFeqPQw==", "id"=>"153"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 153], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (19.4ms)[0m  [1m[31mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 153]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 44ms (ActiveRecord: 21.6ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-03-21 20:19:01 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 517ms (Views: 487.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 20:19:02 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (30.1ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (147.5ms)
+Started GET "/courses" for 127.0.0.1 at 2017-03-21 20:19:27 -0500
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" LIMIT ? OFFSET ?[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 530ms (Views: 526.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.self-7bf5980d3755b015e1fae010cd7f1dd2f9f5a57fc68585eff8d301e477689db2.css?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/images/img.jpg" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/images/img.jpg"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/assets/bootstrap.self-8ae5cea5bab1901e3a67a573d6323c9172f255a8ef29d99f53fade36dcf016c9.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/img-a91a7fec655b1989b407263a043a93b2925cd07b860e83076e5b847651d46aa1.jpg" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/application.self-d055d01bfd734ddd1108c87f88997786d003078c4530a5c938bc4e6d53fb6f34.css?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/high_schools.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/course_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/states.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/colleges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/instructors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/statistics.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/custom.self-cfd4e8d41e9eda2a5b543b9e98b742f31abbcf7b4030097ceb5d84aef5505906.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/application.self-b89234cf2659d7fedea75bca0b8d231ad7dfc2f3f57fcbaf5f44ed9dc384137b.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+Started GET "/assets/font-awesome/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff?v=4.7.0" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2017-03-21 20:19:28 -0500
+  Rendered collection of /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [83 times] (31.0ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendering /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/jmurphy/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (162.3ms)
