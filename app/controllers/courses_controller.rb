@@ -91,8 +91,7 @@ class CoursesController < ApplicationController
                          :course_type => data['Type'],
                          :instructor_id => instr_id.to_i
       )
-
-      if course.save!
+      if course.save
         added_rows = added_rows + 1
       end
       rows = rows + 1
