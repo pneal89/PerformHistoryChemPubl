@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-12">
+  <p id="notice"><%= notice %></p>
 
-<h1>Instructors</h1>
+  <h1>Instructors</h1>
 
-<table class="table table-striped table-responsive">
-  <thead>
+  <table class="table table-striped table-responsive">
+    <thead>
     <tr>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Rank</th>
-      <th colspan="3"></th>
+      <th>Name</th>
+      <th colspan="3">options</th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @instructors.each do |instructor| %>
-      <tr>
-        <td><%= instructor.fname %></td>
-        <td><%= instructor.lname %></td>
-        <td><%= instructor.rank %></td>
-        <td><%= link_to 'Show', instructor %></td>
-        <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= instructor.name %></td>
+          <td><%= link_to 'Show', instructor %></td>
+          <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
+          <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Instructor', new_instructor_path %>
+  <%= link_to 'New Instructor', new_instructor_path %>
+
+</div>
