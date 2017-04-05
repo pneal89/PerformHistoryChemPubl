@@ -5,6 +5,7 @@ namespace :import do
     CSV.foreach(file.path, headers: true) do |row|
 
     end
+  end
   task student: :environment do
     CSV.forreach(file.path, headers: true) do |row|
 
