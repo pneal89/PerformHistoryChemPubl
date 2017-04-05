@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'students/import', to: 'students#import', as: 'import_students'
   post '/courses(.:format)', to: 'courses#to_db', as: 'course_to_db'
   post '/students(.:format)', to: 'students#to_db', as: 'student_to_db'
+  get '/courses/stats', to: 'courses#stat', as: 'courses_stat'
   devise_for :users
   resources :course_students
   resources :colleges

@@ -1,0 +1,66 @@
+<div class="col-md-12">
+  <div class="row top_tiles">
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+        <div class="count"><%= @num_courses %></div>
+        <h3>Number Courses </h3>
+        <p>Total courses.</p>
+      </div>
+    </div>
+
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+        <div class="count">1</div>
+        <h3>Courses </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+        <div class="count">1</div>
+        <h3>Instructors </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+
+    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <div class="tile-stats">
+        <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+        <div class="count">1</div>
+        <h3>Users </h3>
+        <p>Lorem ipsum psdea itgum rixt.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="col-md-12">
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th>Term</th>
+      <th>Rubric</th>
+      <th>Number</th>
+      <th>Sect.</th>
+      <th>passed</th>
+      <th>failed</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.term %></td>
+          <td><%= course.rubric %></td>
+          <td><%= course.course_number %></td>
+          <td><%= course.section %></td>
+          <td><%= (CourseStudent.all.count)-(CourseStudent.where(grade: 'F').count) %></td>
+          <td><%= CourseStudent.where(grade: 'F').count %></td>
+    <% end %>
+    </tbody>
+  </table>
+</div>

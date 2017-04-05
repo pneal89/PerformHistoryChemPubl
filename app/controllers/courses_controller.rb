@@ -2,6 +2,12 @@ class CoursesController < ApplicationController
   require 'csv'
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
+  def stat
+    @courses = Course.all
+    @num_courses = @courses.count
+    @num_intr = Course.all.group_by(&:instructor_id)
+  end
+
   # GET /courses
   # GET /courses.json
   def index
