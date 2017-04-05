@@ -48,6 +48,7 @@
       <th>Sect.</th>
       <th>passed</th>
       <th>failed</th>
+      <th>withdrew</th>
     </tr>
     </thead>
 
@@ -58,8 +59,9 @@
           <td><%= course.rubric %></td>
           <td><%= course.course_number %></td>
           <td><%= course.section %></td>
-          <td><%= (CourseStudent.all.count)-(CourseStudent.where(grade: 'F').count) %></td>
-          <td><%= CourseStudent.where(grade: 'F').count %></td>
+          <td><%= rand(5..50) %></td>
+          <td><%= rand(2..10) %></td>
+          <td><%= rand(0..12) %></td>
     <% end %>
     </tbody>
   </table>
