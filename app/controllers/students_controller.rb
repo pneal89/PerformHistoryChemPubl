@@ -13,7 +13,6 @@ class StudentsController < ApplicationController
   end
 
   def to_db
-    @courses = Course.all
     student = Student.new();
     added_rows = 0
     rows = 0
@@ -25,22 +24,18 @@ class StudentsController < ApplicationController
                             :uid => (data['UID']),
                             :transfer_hours => (data['TREH']).to_i,
       )
-      if student.save
-        added_rows = added_rows + 1
+      course = Course.find_by(course_number: (data['Number']).to_i)
+      student = Student.find_by(uid: (data['UID']))
+      if student.courses.include?(course)
+        relation = student.course_students.find_by(course: course) 
+        relation.increment
+        relation.save
+      else
+        student.courses << course
       end
-      rows = rows + 1
-      tmpcourse = @courses.find_by course_number: data['Number'].to_i
-      if student.course_students.exists?(:id => params[:id])
-        student.tmpcourse.where(:id => params[:id]).attempt += 1
-        break
-      end
-      if defined?(tmpcourse)
-        student.course_students.create(:course => tmpcourse, :attempt => 1)
-      end
+      student.save
     end
-    if added_rows == rows
-      redirect_to students_path
-    end
+    redirect_to students_path
   end
 
   # GET /students/1
