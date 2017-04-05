@@ -24,15 +24,18 @@ class StudentsController < ApplicationController
                             :uid => (data['UID']),
                             :transfer_hours => (data['TREH']).to_i,
       )
+      student.save
       course = Course.find_by(course_number: (data['Number']).to_i)
       student = Student.find_by(uid: (data['UID']))
-      if student.courses.include?(course)
-        relation = student.course_students.find_by(course: course) 
-        relation.increment
-        relation.save
-      else
+      if not student.courses.include?(course)
         student.courses << course
       end
+      relation = student.course_students.find_by(course: course) 
+      relation.increment
+      if not data['Grade'].blank?
+        relation.grade = data['Grade']
+      end
+      relation.save
       student.save
     end
     redirect_to students_path
