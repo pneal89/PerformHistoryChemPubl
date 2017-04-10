@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/courses(.:format)', to: 'courses#to_db', as: 'course_to_db'
   post '/students(.:format)', to: 'students#to_db', as: 'student_to_db'
   get '/courses/stats', to: 'courses#stat', as: 'courses_stat'
+  get '/student/courses/:id', to: 'students#course', as: 'student_courses'
   devise_for :users
   resources :course_students
   resources :colleges
