@@ -12,4 +12,6 @@ localhost:3000/users/sign_in
 E: jmrphyii@memphis.edu
 P:123456
 
+seed database with user in it
+
 seed database 
