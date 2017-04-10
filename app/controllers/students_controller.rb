@@ -95,6 +95,9 @@ class StudentsController < ApplicationController
     end
   end
 
+  def course
+    @courses = CourseStudent.where(student_id: params[:id]).group_by(&:course_id)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student

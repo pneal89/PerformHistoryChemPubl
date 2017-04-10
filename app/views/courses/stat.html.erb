@@ -59,9 +59,9 @@
           <td><%= course.rubric %></td>
           <td><%= course.course_number %></td>
           <td><%= course.section %></td>
-          <td><%= rand(5..50) %></td>
-          <td><%= rand(2..10) %></td>
-          <td><%= rand(0..12) %></td>
+          <td><%= CourseStudent.where("grade != 'F' AND grade != 'W' And course_id ="+course.id.to_s).count %></td>
+          <td><%= CourseStudent.where("grade = 'F'  And course_id ="+course.id.to_s).count %></td>
+          <td><%= CourseStudent.where("grade = 'W' And course_id ="+course.id.to_s).count %></td>
     <% end %>
     </tbody>
   </table>
