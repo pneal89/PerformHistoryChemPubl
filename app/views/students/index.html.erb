@@ -69,7 +69,7 @@
           <td><%= student.degree %></td>
           <td><%= student.email %></td>
           <td><%= student.ethnicity %></td>
-          <td><%= student.fname %></td>
+          <td><%=  link_to student.fname, student_courses_path(student.id) %></td>
           <td><%= student.gender %></td>
           <td><%= student.graduation %></td>
           <td><%= student.high_school %></td>
