@@ -1,0 +1,6 @@
+<%= form_tag({:action => :to_db}, multipart: true, class: 'form') do %>
+    <div class="field form-group">
+      <%= file_field_tag :file, class: 'form-control' %>
+      <%= submit_tag( "Import", class: 'form-control' ) %>
+    </div>
+<% end %>

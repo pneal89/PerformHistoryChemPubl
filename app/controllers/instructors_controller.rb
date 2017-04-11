@@ -1,10 +1,34 @@
 class InstructorsController < ApplicationController
+  require 'csv'
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
   # GET /instructors
   # GET /instructors.json
   def index
     @instructors = Instructor.all
+  end
+
+  def import
+  end
+
+  def to_db
+    instructor = Instructor.new()
+    added_rows = 0
+    rows=0
+    CSV.foreach(params[:file].path, :headers => true) do |row|
+      data = row.to_hash
+      
+      instructor = Instructor.new(
+                         :name => data['Name']
+      )
+      if instructor.save
+        added_rows = added_rows + 1
+      end
+      rows = rows + 1
+    end
+    if added_rows == rows
+      redirect_to instructors_path
+    end
   end
 
   # GET /instructors/1

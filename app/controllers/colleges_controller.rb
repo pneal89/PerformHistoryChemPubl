@@ -1,4 +1,5 @@
 class CollegesController < ApplicationController
+  require 'csv'
   before_action :set_college, only: [:show, :edit, :update, :destroy]
 
   # GET /colleges
@@ -10,6 +11,33 @@ class CollegesController < ApplicationController
   # GET /colleges/1
   # GET /colleges/1.json
   def show
+  end
+
+  def import
+  end
+
+  def to_db
+    college = College.new()
+    added_rows = 0
+    rows=0
+    CSV.foreach(params[:file].path, :headers => true) do |row|
+      data = row.to_hash
+      
+      college = College.new(
+                         :city => data['City'],
+                         :state => (data['State']),
+                         :name => data['Name'],
+                         :uid => (data['UID']),
+                         :county => data['County']
+      )
+      if instructor.save
+        added_rows = added_rows + 1
+      end
+      rows = rows + 1
+    end
+    if added_rows == rows
+      redirect_to instructors_path
+    end
   end
 
   # GET /colleges/new
