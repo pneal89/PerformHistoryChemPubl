@@ -1,8 +1,34 @@
-<div class="col-md-12">
+<div class="col-md-12"><table class="table">
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Course</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @report_data.each do |d| %>
+      <% d[1].each do |c| %>
+          <% if c[1] >= 2 %>
+              <tr>
+                <td><%= d[0].fname %></td>
+                <td><%= d[0].lname %></td>
+                <td><%= d[0].email %></td>
+                <td><%= c[1] %></td>
+              </tr>
+              <%= d[0].fname %>
+          <% end %>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
   <p><%= @student_twice %></p>
-  <% @student_twice.each do |st| %>
-      <% st.each do |s| %>
-          <p><%= s %></p>
+  <% @report_data.each do |d| %>
+      <% d[1].each do |c| %>
+          <% if c[1] >= 2 %>
+            <%= d[0].fname %>
+          <% end %>
       <% end %>
   <% end %>
 </div>
