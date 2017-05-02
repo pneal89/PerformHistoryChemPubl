@@ -30,13 +30,13 @@ class CollegesController < ApplicationController
                          :uid => (data['UID']),
                          :county => data['County']
       )
-      if instructor.save
+      if college.save
         added_rows = added_rows + 1
       end
       rows = rows + 1
     end
     if added_rows == rows
-      redirect_to instructors_path
+      redirect_to colleges_path
     end
   end
 
