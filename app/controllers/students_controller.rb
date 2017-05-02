@@ -30,17 +30,30 @@ class StudentsController < ApplicationController
                             :transfer_hours => (data['TREH']).to_i,
       )
       student.save
-      course = Course.find_by(course_number: (data['Number']).to_i)
+      #course = Course.find_by(course_number: (data['Number']).to_i)
+      course = Course.find_by_course_number_and_term((data['Number']).to_i, (data['Term']).to_i)
+      #course = Course.new(:
       student = Student.find_by(uid: (data['UID']))
       if not student.courses.include?(course)
         student.courses << course
+        relation = student.course_students.find_by(course: course) 
+        if not data['Grade'].blank?
+          relation.grade = data['Grade']
+        end
+        @courses = Course.where(course_number: (data['Number']).to_i)
+        @courses.each do |c|
+          if student.courses.include?(c)
+            newrelation = student.course_students.find_by(course: c)
+            if (relation.grade == "D" or relation.grade == "D+" or relation.grade == "F" or relation.grade == "U")
+              newrelation.increment
+              newrelation.save
+            end
+            relation.attempt = newrelation.attempt
+          end
+        end
+        relation.save
       end
-      relation = student.course_students.find_by(course: course) 
-      relation.increment
-      if not data['Grade'].blank?
-        relation.grade = data['Grade']
-      end
-      relation.save
+      
       student.save
     end
     redirect_to students_path

@@ -1,0 +1,22 @@
+<div class="col-md-12"><table class="table">
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>Course</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @courses.each do |d| %>
+  <tr>
+      <td><%= Student.find(d.student_id).fname %></td>
+      <td><%= Student.find(d.student_id).lname %></td>
+      <td><%= Student.find(d.student_id).email %></td>
+      <td><%=Course.find(d.course_id).course_number.to_s %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</div>

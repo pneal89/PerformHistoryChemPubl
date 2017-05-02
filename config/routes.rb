@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :students
   resources :courses
 
+  get 'reports/students/attempts', to: 'student_reports#attempts', as: 'attempt_report'
   get 'users', to: 'users#index', as: 'admin_users'
   root to: 'test#index'
 end
