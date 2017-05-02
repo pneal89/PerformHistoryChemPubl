@@ -13,7 +13,7 @@
       <td><%= Student.find(d.student_id).fname %></td>
       <td><%= Student.find(d.student_id).lname %></td>
       <td><%= Student.find(d.student_id).email %></td>
-      <td><%=Course.find(d.course_id).course_number.to_s %></td>
+      <td><%=Course.find(d.course_id).course_number.to_s %> - <%=Course.find(d.course_id).term.to_s %>, <%= d.grade %></td>
   </tr>
   <% end %>
   </tbody>

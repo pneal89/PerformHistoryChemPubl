@@ -114,7 +114,7 @@ class StudentsController < ApplicationController
   end
 
   def course
-    @courses = CourseStudent.where(student_id: params[:id]).group_by(&:course_id)
+    @courses = CourseStudent.where(student_id: params[:id])
   end
   private
     # Use callbacks to share common setup or constraints between actions.
