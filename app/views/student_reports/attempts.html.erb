@@ -8,27 +8,15 @@
   </tr>
   </thead>
   <tbody>
-  <% @report_data.each do |d| %>
-      <% d[1].each do |c| %>
-          <% if c[1] >= 2 %>
-              <tr>
-                <td><%= d[0].fname %></td>
-                <td><%= d[0].lname %></td>
-                <td><%= d[0].email %></td>
-                <td><%= c[1] %></td>
-              </tr>
-              <%= d[0].fname %>
-          <% end %>
-      <% end %>
+  <% @courses.each do |d| %>
+  <tr>
+      <td><%= Student.find(d.student_id).fname %></td>
+      <td><%= Student.find(d.student_id).lname %></td>
+      <td><%= Student.find(d.student_id).email %></td>
+      <td><%=Course.find(d.course_id).course_number.to_s %></td>
+  </tr>
   <% end %>
   </tbody>
 </table>
-  <p><%= @student_twice %></p>
-  <% @report_data.each do |d| %>
-      <% d[1].each do |c| %>
-          <% if c[1] >= 2 %>
-            <%= d[0].fname %>
-          <% end %>
-      <% end %>
-  <% end %>
+
 </div>
