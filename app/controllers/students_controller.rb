@@ -6,6 +6,11 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all.paginate(:page => params[:page])
+    if params[:search]
+      @students = Student.search(params[:search]).order("created_at DESC")
+    else
+      @students = Student.all.order("created_at DESC")
+    end
   end
 
   def import
