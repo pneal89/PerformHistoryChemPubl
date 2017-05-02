@@ -31,23 +31,24 @@ class StudentsController < ApplicationController
       student = Student.find_by(uid: (data['UID']))
       if not student.courses.include?(course)
         student.courses << course
-      end
-      relation = student.course_students.find_by(course: course) 
-      if not data['Grade'].blank?
-        relation.grade = data['Grade']
-      end
-      @courses = Course.where(course_number: (data['Number']).to_i)
-      @courses.each do |c|
-        if student.courses.include?(c)
-          newrelation = student.course_students.find_by(course: c)
-          if (relation.grade == "D" or relation.grade == "D+" or relation.grade == "F" or relation.grade == "U")
-            newrelation.increment
-            newrelation.save
-          end
-          relation.attempt = newrelation.attempt
+        relation = student.course_students.find_by(course: course) 
+        if not data['Grade'].blank?
+          relation.grade = data['Grade']
         end
+        @courses = Course.where(course_number: (data['Number']).to_i)
+        @courses.each do |c|
+          if student.courses.include?(c)
+            newrelation = student.course_students.find_by(course: c)
+            if (relation.grade == "D" or relation.grade == "D+" or relation.grade == "F" or relation.grade == "U")
+              newrelation.increment
+              newrelation.save
+            end
+            relation.attempt = newrelation.attempt
+          end
+        end
+        relation.save
       end
-      relation.save
+      
       student.save
     end
     redirect_to students_path
