@@ -1,0 +1,8 @@
+<div class="col-md-12">
+  <p><%= @student_twice %></p>
+  <% @student_twice.each do |st| %>
+      <% st.each do |s| %>
+          <p><%= s %></p>
+      <% end %>
+  <% end %>
+</div>
