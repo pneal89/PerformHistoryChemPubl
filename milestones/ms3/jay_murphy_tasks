@@ -1,0 +1,9 @@
+Task 1
+	Task: develop the main layout page for dashboard
+	Evaluate: Run the Ruby app and see the code for it in the application view file. 
+
+	Task: Authentication
+	Evaluate: Have sucessful authentication for an admin user. Will have a user that can be signed in for teseting purposes in the read me file.
+
+	TasK: Add student table with testing
+	Evaluate: having passing test on the fields in the validations.

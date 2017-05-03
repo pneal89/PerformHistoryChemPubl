@@ -1,0 +1,26 @@
+Jay Murphy
+
+Task: Develop the main layout page for dashboard. A front page of sorts, which gathers up and displays information in an aesthetically pleasing manner.
+Evaluate: Run the Ruby app and see the code for it in the application view file. 
+
+Task: User Authentication
+Evaluate: Have sucessful authentication for an admin user. Will have a user that can be signed in for teseting purposes in the read me file.
+
+Ben Murphy
+
+Task: Add student table with testing
+Evaluate: Have passing tests on the fields in the validations.
+
+Task: Student Metrics. Calculate and display different statistcs from the student table to aid in understanding the data.
+Evaluate: Multiple different measurements from the student table displayed for the user
+
+Task: FERPA Compliance
+Evaluate: Compare FERPA rules and implementation and have passing tests for various aspects.
+
+Patrick Neal
+
+Task: Add class table with testing
+Evaluate: Have passing tests on the fields in the validation.
+
+Task: Develop pages for individual tables. Similar to the main layout page, but for individual tables, displaying the information in an aesthetically pleasing way
+Evaluate: Run the Ruby app and see the code for it in the application view files.
