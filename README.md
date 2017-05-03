@@ -11,7 +11,7 @@ Basic useful feature list:
  * Notify students of third class attempt
  
 ## Short advertisement
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Yn4xa9YoM5s" frameborder="0" allowfullscreen></iframe> 
+[![hiya](https://img.youtube.com/vi/Yn4xa9YoM5s/0.jpg)](https://www.youtube.com/watch?v=Yn4xa9YoM5s)
 
 
 ## Software stack
