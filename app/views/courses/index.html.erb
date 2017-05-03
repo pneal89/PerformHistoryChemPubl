@@ -32,7 +32,7 @@
         <tr>
           <td><%= course.term %></td>
           <td><%= course.rubric %></td>
-          <td><%= course.course_number %></td>
+          <td><%= link_to course.course_number,more_path(course.id) %></td>
           <td><%= course.section %></td>
           <td><%= course.credit_hours %></td>
           <td><%= course.course_type %></td>

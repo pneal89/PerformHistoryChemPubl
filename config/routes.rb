@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/courses/stats', to: 'courses#stat', as: 'courses_stat'
   
   get '/student/courses/:id', to: 'students#course', as: 'student_courses'
+  get 'course/:id', to: 'courses#more', as: 'more'
 
   
   devise_for :users
