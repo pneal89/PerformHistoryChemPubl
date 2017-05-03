@@ -8,7 +8,11 @@ Basic useful feature list:
  * Import students
  * Import courses
  * Import Grades
- * Notify students of third class attempt 
+ * Notify students of third class attempt
+ 
+## Short advertisement
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yn4xa9YoM5s" frameborder="0" allowfullscreen></iframe> 
+
 
 ## Software stack
 * Ruby
