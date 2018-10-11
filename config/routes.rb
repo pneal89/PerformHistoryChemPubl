@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/courses/stats', to: 'courses#stat', as: 'courses_stat'
   
   get '/student/courses/:id', to: 'students#course', as: 'student_courses'
+  get 'course/:id', to: 'courses#more', as: 'more'
 
   
   devise_for :users
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   resources :students
   resources :courses
 
+  get 'reports/students/attempts', to: 'student_reports#attempts', as: 'attempt_report'
   get 'users', to: 'users#index', as: 'admin_users'
   root to: 'test#index'
 end

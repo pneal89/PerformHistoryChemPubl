@@ -6,11 +6,10 @@ class CourseStudent < ApplicationRecord
   before_save :default_attempt_count
 
   def increment
-  	#self.attempt += 1 if self.grade = "D"
-  	#self.attempt += 1 if self.grade = "D+"
-  	#self.attempt += 1 if self.grade = "F"
-  	#self.attempt += 1 if self.grade = "U"
-        self.attempt += 1
+    #if (self.grade == "D" or self.grade == "D+" or self.grade == "F" or self.grade == "U")
+  	#  self.attempt += 1 
+    self.attempt += 1
+    #end
   end
 
   def default_attempt_count

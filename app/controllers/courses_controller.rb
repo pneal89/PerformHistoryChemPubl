@@ -1,7 +1,17 @@
 class CoursesController < ApplicationController
   require 'csv'
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  def more
+    @courses = CourseStudent.where(course_id: params[:id])
+    @num_a = @courses.where(grade: 'A').count
+    @num_b = @courses.where(grade: 'B').count
+    @num_c = @courses.where(grade: 'C').count
+    @num_d = @courses.where(grade: 'D').count
+    @num_f = @courses.where(grade: 'F').count
+    @num_w = @courses.where(grade: 'W').count
+    @passed = @num_a + @num_b + @num_c
+    @faile = @num_d + @num_f
+  end
   def stat
     @courses = Course.all
     @num_courses = @courses.count
